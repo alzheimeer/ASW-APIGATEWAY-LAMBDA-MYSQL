@@ -14,7 +14,13 @@ const Navbar = () => {
                         <li className="nav-item">
                             <Link className="nav-link" to="/new-user">Create New User</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/query">SQL</Link>
+                        </li>
                     </ul>
+                </div>
+                <div>
+                <div className="g-signin2" data-onsuccess="onSignIn"></div>
                 </div>
             </div>
         </nav>
