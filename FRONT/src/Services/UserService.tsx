@@ -38,7 +38,7 @@ export const deleteUser = async (id: string) => {
 }
 export const nQuery = async (query: Query) => {
     const token = localStorage.getItem('TokenGoogle');
-    const url = `${baseUrl}`;
+    const url = `${baseUrl}/querys`;
     const body = {
         "host": query.host,
         "user": query.user,
