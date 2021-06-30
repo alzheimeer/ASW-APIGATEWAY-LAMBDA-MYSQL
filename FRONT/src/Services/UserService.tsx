@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { User } from '../interfaces/User';
+import { User, Query } from '../interfaces/User';
 
 const baseUrl = 'https://2s2qtbj9yc.execute-api.us-east-1.amazonaws.com'
 
@@ -36,11 +36,15 @@ export const deleteUser = async (id: string) => {
     const url = `${baseUrl}/${id}`;
     return await axios.delete(url, { headers: { 'Authorization': `Bearer ${token}` }});
 }
-export const nUser = async () => {
+export const nQuery = async (query: Query) => {
     const token = localStorage.getItem('TokenGoogle');
     const url = `${baseUrl}`;
     const body = {
-        sql: 'Select * from '
+        "host": query.host,
+        "user": query.user,
+        "password": query.password,
+        "database": query.database,
+        "query": query.querysql
     }
     return await axios.post(url, body, { headers: { 'Authorization': `Bearer ${token}` }});
 }

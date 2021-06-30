@@ -9,3 +9,11 @@ export interface User {
     createdAt?: string | Date;
     updatedAt?: string | Date;
 }
+
+export interface Query {
+    "host": string;
+    "user": string;
+    "password": string;
+    "database": string;
+    "querysql": string;
+}

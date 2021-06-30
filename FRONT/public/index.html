@@ -19,12 +19,12 @@
     <script>
       function onSignIn(googleUser) {
         var profile = googleUser.getBasicProfile();
-        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-        console.log('Name: ' + profile.getName());
-        console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-        console.log('Token: ' + googleUser.getAuthResponse().id_token); // This is null if the 'email' scope is not present.
-        localStorage.setItem('TokenGoogle', googleUser.getAuthResponse().id_token); // This is null if the 'email' scope is not present.
+        {% comment %} console.log('ID: ' + profile.getId());  {% endcomment %}
+        {% comment %} console.log('Name: ' + profile.getName()); {% endcomment %}
+        {% comment %} console.log('Image URL: ' + profile.getImageUrl()); {% endcomment %}
+        {% comment %} console.log('Email: ' + profile.getEmail());  {% endcomment %}
+        {% comment %} console.log('Token: ' + googleUser.getAuthResponse().id_token);  {% endcomment %}
+        localStorage.setItem('TokenGoogle', googleUser.getAuthResponse().id_token);
       }
       </script>
       
