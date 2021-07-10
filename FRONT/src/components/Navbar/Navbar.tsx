@@ -15,7 +15,10 @@ const Navbar = () => {
                             <Link className="nav-link" to="/new-user">Create New User</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/query">SQL</Link>
+                            <Link className="nav-link" to="/query">Query SQL</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/registerUser">Assign DB To User</Link>
                         </li>
                     </ul>
                 </div>

@@ -7,8 +7,8 @@ import UserList from './components/Users/UserList';
 import UserForm from './components/Users/UserForm';
 import 'bootswatch/dist/pulse/bootstrap.min.css'
 import Navbar from './components/Navbar/Navbar';
-// import {  } from "./dashboard/DashboardNavbar";
 import Sqlv from './components/Sqlv/Sqlv';
+import AddBdUser from './components/Sqlv/AddBdUser';
 
 
 ReactDOM.render(
@@ -22,6 +22,7 @@ ReactDOM.render(
           <Route path="/new-user" component={UserForm} />
           <Route path="/update/:id" component={UserForm} />
           <Route path="/query" component={Sqlv} />
+          <Route path="/registerUser" component={AddBdUser} />
         </Switch>
       </div>
 

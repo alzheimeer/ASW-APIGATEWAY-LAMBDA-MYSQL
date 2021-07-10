@@ -1,104 +1,82 @@
-const mysql = require("mysql");
+var AWS = require('aws-sdk'),
+    region = "us-east-1",
+    secretName = "mysql", //Parameter of secretManager Of DBMysql
+    secret,
+    decodedBinarySecret;
 
-// Datos usando pool 
-var pool = mysql.createPool({
-  host: "lendiup.ccuvk0hypuej.us-east-1.rds.amazonaws.com",
-  user: "admin",
-  password: "Zpwjiexxn193*",
-  database: "lendiup",
-  ssl: true
+// Connection AWS Secret Manager
+var client = new AWS.SecretsManager({
+    region: region
 });
 
-
-exports.handler = (event, context, callback) => {
-    // TODO implement
-    let x = 'Hola';
-   
-   
+exports.handler = async (event, context, callback) => {
+    let results; //Data to return
+    let up;  // Data entry
+    
+    // Recovery data secret connection 
+    let data =  await client.getSecretValue({ SecretId: secretName }).promise();
+    data = await JSON.parse(data.SecretString);
+    
+    // A module for managing MySQL connections at serverless scale
+    // https://github.com/jeremydaly/serverless-mysql
+    // npm i serverless-mysql
+    const mysql = await require('serverless-mysql')({
+        config: {
+        host     : data.host,
+        database : data.dbInstanceIdentifier,
+        user     : data.username,
+        password : data.password
+        }
+      });
+      
+      
+      
     switch (event.routeKey) {
         
-        
-      case "PUT /{id}":
-        x = 'PUTID';
-         context.callbackWaitsForEmptyEventLoop = false;
-          pool.getConnection(function (err) {
-          if (err) throw err;
-          const up = JSON.parse(event.body);
-          pool.query("UPDATE users SET name=?, secondname=?, surname=?, secondsurname=?, email=?, password=?  WHERE idusers=?", [up.name, up.secondname, up.surname, up.secondsurname, up.email, up.password, event.pathParameters.id], (error, result) => {
-            if (error) throw error;
-            else {
-              callback(null, "Updated successfully!");
-            }
-          });
-        });
+        case "GET /":
+          results = await mysql.query('SELECT * FROM users');
+          mysql.quit();
+          callback(null, results);
         break;
-        
-        
-      case "GET /{id}":
-        x = 'GETID';
-         context.callbackWaitsForEmptyEventLoop = false;
-          pool.getConnection(function (err) {
-          if (err) throw err;
-          pool.query("SELECT * FROM users WHERE idusers=?", [event.pathParameters.id], (error, result) => {
-            if (error) throw error;
-            else {
-              callback(null, result);
-            }
-          });
-        });
+          
+        case "GET /{id}":
+          results = await mysql.query('SELECT * FROM users WHERE id=?', [event.pathParameters.id]);
+          mysql.quit();
+          callback(null, results);
         break;
-        
-        
-      case "GET /":
-        x = 'GET';
-         context.callbackWaitsForEmptyEventLoop = false;
-         pool.getConnection(function(err, connection) {
-          pool.query("SELECT * FROM users", function (err, result) {
-             if (err) throw err;
-             
-             else callback(null, result);
-            
-          });
-        });
+                  
+        case "PUT /{id}":
+          up = JSON.parse(event.body);
+          results = await mysql.query({
+                                  sql: 'UPDATE users SET user=?, name=?, email=?  WHERE id=?',
+                                  values: [up.user, up.name, up.email, event.pathParameters.id]
+                                });
+          mysql.quit();
+          callback(null, results);
         break;
-        
-        
-        
-      case "POST /":
-        x = 'POST';
-         context.callbackWaitsForEmptyEventLoop = false;
-         pool.getConnection((err) => {
-          if (err) throw err;
-          const up = JSON.parse(event.body);
-          pool.query("INSERT INTO users SET name=?, secondname=?, surname=?, secondsurname=?, email=?, password=?",[up.name, up.secondname, up.surname, up.secondsurname, up.email, up.password], (error, result) => {
-            if (error) throw error;
-            else {
-              callback(null, "Inserted successfully!");
-            }
-          });
-        });
+  
+        case "POST /":
+          up = JSON.parse(event.body);
+          results = await mysql.query({
+                                  sql: 'INSERT INTO users SET user=?, name=?, email=?',
+                                  values: [up.user, up.name, up.email]
+                                });
+          mysql.quit();
+          callback(null, results);
         break;
-        
-      case "DELETE /{id}":
-        x = 'DELETE';
-         context.callbackWaitsForEmptyEventLoop = false;
-          pool.getConnection(function (err) {
-          if (err) throw err;
-          pool.query("DELETE FROM users WHERE idusers=?", [event.pathParameters.id], (error, result) => {
-            if (error) throw error;
-            else {
-              callback(null, "Removed successfully!");
-            }
-          });
-        });
+          
+        case "DELETE /{id}":
+          results = await mysql.query('DELETE FROM users WHERE id=?', [event.pathParameters.id]);
+          mysql.quit();
+          callback(null, results);
         break;
-     
-      }
-      
+    }
+
+    // if not entry in switch return event complete
     const response = {
         statusCode: 200,
         body: JSON.stringify({  event }),
-        event: event.routeKey
+        type: event.routeKey
     };
     return response;
 };
