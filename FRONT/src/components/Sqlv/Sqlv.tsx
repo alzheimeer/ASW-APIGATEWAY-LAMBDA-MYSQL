@@ -1,6 +1,7 @@
 import React, { FormEvent, useState } from 'react'
 import './Sqlv.css'
 import { nQuery } from '../../Services/UserService';
+import Swal from 'sweetalert2';
 
 
 const Sqlv = () => {
@@ -27,10 +28,21 @@ const Sqlv = () => {
     // Metodo Activado Por El Boton
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // console.log("query:", query);
-        result = await nQuery(query);
-        setArrayKeys(Object.keys(result.data[0]));
-        setArrayValues(result.data);
+        try {
+            result = await nQuery(query);
+           
+            Swal.showLoading();
+            setArrayKeys(Object.keys(result.data[0]));
+            setArrayValues(result.data);
+            Swal.close();
+        } catch (error) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Consult the base not valid',
+                icon: 'error'
+            });
+        }
+        
         // console.log(result.data);
     }
 
@@ -45,7 +57,7 @@ const Sqlv = () => {
                     <label htmlFor="host">Host: </label>
                     <select className="form-select " aria-label="Default select example" name="host" onChange={handleInputChange}>
                         <option selected>Choose</option>
-                        <option value="lendiup.ccuvk0hypuej.us-east-1.rds.amazonaws.com">Db MySql1</option>
+                        <option value="lendiup.ccuvk0hypuej.us-east-1.rds.amazonaws.com">lendiup.ccuvk0hypuej.us-east-1.rds.amazonaws.com</option>
                     </select>
 
                     <label htmlFor="database">Database name</label>

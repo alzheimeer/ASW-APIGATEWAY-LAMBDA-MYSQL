@@ -33,6 +33,7 @@ exports.handler = async (event, context, callback) => {
       
     switch (event.routeKey) {
         
+        // CRUD BASICO
         case "GET /":
           results = await mysql.query('SELECT * FROM users');
           mysql.quit();
@@ -56,7 +57,6 @@ exports.handler = async (event, context, callback) => {
         break;
   
         case "POST /":
-          up = JSON.parse(event.body);
           results = await mysql.query({
                                   sql: 'INSERT INTO users SET user=?, name=?, email=?',
                                   values: [up.user, up.name, up.email]
@@ -64,12 +64,22 @@ exports.handler = async (event, context, callback) => {
           mysql.quit();
           callback(null, results);
         break;
-          
+        
         case "DELETE /{id}":
           results = await mysql.query('DELETE FROM users WHERE id=?', [event.pathParameters.id]);
           mysql.quit();
           callback(null, results);
         break;
+        
+        //ENVIO DE CUALQUIER QUERY POR METODO POST EN /querys
+        case "POST /querys":
+          up = JSON.parse(event.body);
+          results = await mysql.query(up.query);
+          mysql.quit();
+          callback(null, results);
+        break;
+          
+       
     }
 
     // if not entry in switch return event complete
