@@ -156,7 +156,7 @@ export const AuthProvider: FC<AuthProviderProps> = (props) => {
               id: user.sub,
               avatar: '/static/mock-images/avatars/avatar-jane_rotanson.png',
               email: user.attributes.email,
-              name: 'Jane Rotanson',
+              name: 'Edgar Quintero',
               plan: 'Premium'
             }
           }
@@ -190,7 +190,7 @@ export const AuthProvider: FC<AuthProviderProps> = (props) => {
           id: user.attributes.sub,
           avatar: '/static/mock-images/avatars/avatar-jane_rotanson.png',
           email: user.attributes.email,
-          name: 'Jane Rotanson',
+          name: 'Edgar Quintero',
           plan: 'Premium'
         }
       }

@@ -133,7 +133,7 @@ const BlogPostDetails: FC = () => {
                     color="textPrimary"
                     variant="body2"
                   >
-                    Hello, Jane Rotanson
+                    Hello, Edgar Quintero
                   </Typography>
                 </Grid>
                 <Grid item>

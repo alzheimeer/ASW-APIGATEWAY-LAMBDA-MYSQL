@@ -8,7 +8,7 @@ const users = [
     id: '5e86809283e28b96d2d38537',
     avatar: '/static/mock-images/avatars/avatar-jane_rotanson.png',
     email: 'demo@devias.io',
-    name: 'Jane Rotanson',
+    name: 'Edgar Quintero',
     password: 'Password123!',
     plan: 'Premium'
   }

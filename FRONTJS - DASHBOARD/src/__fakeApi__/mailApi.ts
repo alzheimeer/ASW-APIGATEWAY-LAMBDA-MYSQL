@@ -114,7 +114,7 @@ Marcus Finn
       {
         avatar: '/static/mock-images/avatars/avatar-jane_rotanson.png',
         email: 'jane.rotanson@devias.io',
-        name: 'Jane Rotanson'
+        name: 'Edgar Quintero'
       }
     ],
     createdAt: now.getTime()
@@ -139,7 +139,7 @@ Hey, nice projects! I really liked the one in react. What's your quote on kinda 
       {
         avatar: '/static/mock-images/avatars/avatar-jane_rotanson.png',
         email: 'jane.rotanson@devias.io',
-        name: 'Jane Rotanson'
+        name: 'Edgar Quintero'
       }
     ],
     createdAt: now.getTime()
@@ -164,7 +164,7 @@ Dear Jane, Your flight is coming up soon. Please don’t forget to check in for 
       {
         avatar: '/static/mock-images/avatars/avatar-jane_rotanson.png',
         email: 'jane.rotanson@devias.io',
-        name: 'Jane Rotanson'
+        name: 'Edgar Quintero'
       }
     ],
     createdAt: now.getTime()
@@ -189,7 +189,7 @@ My market leading client has another fantastic opportunity for an experienced So
       {
         avatar: '/static/mock-images/avatars/avatar-jane_rotanson.png',
         email: 'jane.rotanson@devias.io',
-        name: 'Jane Rotanson'
+        name: 'Edgar Quintero'
       }
     ],
     createdAt: now.getTime()

@@ -153,7 +153,7 @@ const threads: Thread[] = [
       {
         id: '5e86809283e28b96d2d38537',
         avatar: '/static/mock-images/avatars/avatar-jane_rotanson.png',
-        name: 'Jane Rotanson',
+        name: 'Edgar Quintero',
         username: 'jane.rotanson'
       },
       {
@@ -198,7 +198,7 @@ const threads: Thread[] = [
       {
         id: '5e86809283e28b96d2d38537',
         avatar: '/static/mock-images/avatars/avatar-jane_rotanson.png',
-        name: 'Jane Rotanson',
+        name: 'Edgar Quintero',
         username: 'jane.rotanson'
       },
       {
@@ -389,7 +389,7 @@ class ChatApi {
         const user = {
           id: '5e86809283e28b96d2d38537',
           avatar: '/static/mock-images/avatars/avatar-jane_rotanson.png',
-          name: 'Jane Rotanson',
+          name: 'Edgar Quintero',
           username: 'jane.rotanson'
         };
 

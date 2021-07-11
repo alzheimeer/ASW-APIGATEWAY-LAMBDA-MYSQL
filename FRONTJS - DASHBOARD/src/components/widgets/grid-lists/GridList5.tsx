@@ -26,7 +26,7 @@ const posts = [
     author: {
       id: '5e86809283e28b96d2d38537',
       avatar: '/static/mock-images/avatars/avatar-jane_rotanson.png',
-      name: 'Jane Rotanson'
+      name: 'Edgar Quintero'
     },
     createdAt: subHours(now, 4).getTime(),
     likes: 24,
@@ -38,7 +38,7 @@ const posts = [
     author: {
       id: '5e86809283e28b96d2d38537',
       avatar: '/static/mock-images/avatars/avatar-jane_rotanson.png',
-      name: 'Jane Rotanson'
+      name: 'Edgar Quintero'
     },
     createdAt: subHours(now, 7).getTime(),
     likes: 65,

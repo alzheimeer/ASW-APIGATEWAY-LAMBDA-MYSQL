@@ -66,6 +66,14 @@ const Overview = Loadable(lazy(() => import('./pages/dashboard/Overview')));
 const ProductCreate = Loadable(lazy(() => import('./pages/dashboard/ProductCreate')));
 const ProductList = Loadable(lazy(() => import('./pages/dashboard/ProductList')));
 
+const UserList = Loadable(lazy(() => import('./pages/dashboard/Users/UserList')));
+const UserItem = Loadable(lazy(() => import('./pages/dashboard/Users/UserItem')));
+const UserForm = Loadable(lazy(() => import('./pages/dashboard/Users/UserForm')));
+const AddBdUser = Loadable(lazy(() => import('./pages/dashboard//Sqlv/Sqlv')));
+const Sqlv = Loadable(lazy(() => import('./pages/dashboard/Sqlv/Sqlv')));
+
+
+
 // Docs pages
 
 const Docs = Loadable(lazy(() => import('./pages/Docs')));
@@ -169,6 +177,26 @@ const routes: PartialRouteObject[] = [
       {
         path: '/',
         element: <Overview />
+      },
+      {
+        path: 'UserList',
+        element: <UserList />
+      },
+      {
+        path: 'UserForm',
+        element: <UserForm />
+      },
+      {
+        path: 'UserItem',
+        element: <UserItem />
+      },
+      {
+        path: 'AddBdUser',
+        element: <AddBdUser />
+      },
+      {
+        path: 'Sqlv',
+        element: <Sqlv />
       },
       {
         path: 'account',
@@ -346,12 +374,36 @@ const routes: PartialRouteObject[] = [
   },
   {
     path: '*',
-    element: <MainLayout />,
+    // element: <MainLayout />,
+    // element: <DashboardLayout />,
+    element: (
+      <AuthGuard>
+        <DashboardLayout />
+      </AuthGuard>
+    ),
     children: [
       {
-        path: '/',
-        element: <Home />
+        path: '/', 
+        // element: <Home />
+        element: <UserList />
       },
+     
+      // {
+      //   path: '/UserForm',
+      //   element: <UserForm />
+      // },
+      // {
+      //   path: '/UserItem',
+      //   element: <UserItem />
+      // },
+      // {
+      //   path: '/AddBdUser',
+      //   element: <AddBdUser />
+      // },
+      // {
+      //   path: '/Sqlv',
+      //   element: <Sqlv />
+      // },
       {
         path: 'browse',
         element: <BrowseLayout />,

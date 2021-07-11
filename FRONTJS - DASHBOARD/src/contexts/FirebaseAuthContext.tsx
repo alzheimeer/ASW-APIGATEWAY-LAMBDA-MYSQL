@@ -81,7 +81,7 @@ export const AuthProvider: FC<AuthProviderProps> = (props) => {
             id: user.uid,
             avatar: user.photoURL,
             email: user.email,
-            name: 'Jane Rotanson',
+            name: 'Edgar Quintero',
             plan: 'Premium'
           }
         }

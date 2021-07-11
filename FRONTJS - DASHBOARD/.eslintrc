@@ -9,8 +9,8 @@
     "project": "./tsconfig.json"
   },
   "extends": [
-    "airbnb-typescript"
-    // "eslint:recommended"
+    // "airbnb-typescript"
+    "eslint:recommended"
   ],
   "rules": {
     "@typescript-eslint/comma-dangle": "off",

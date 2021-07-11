@@ -45,7 +45,7 @@ const applicants = [
     avatar: '/static/mock-images/avatars/avatar-jane_rotanson.png',
     commonConnections: 17,
     cover: '/static/mock-images/covers/cover_1.jpg',
-    name: 'Jane Rotanson',
+    name: 'Edgar Quintero',
     skills: [
       'BackEnd development',
       'Firebase',

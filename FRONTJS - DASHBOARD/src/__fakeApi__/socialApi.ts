@@ -15,7 +15,7 @@ class SocialApi {
       currentJobCompany: 'Devias IO',
       currentJobTitle: 'Product Designer',
       email: 'jane.rotanson@devias.io',
-      name: 'Jane Rotanson',
+      name: 'Edgar Quintero',
       originCity: 'Rm. Valcea',
       previousJobCompany: 'Focus Aesthetic Dynamics',
       previousJobTitle: 'UX Designer',
@@ -68,7 +68,7 @@ class SocialApi {
         author: {
           id: '5e86809283e28b96d2d38537',
           avatar: '/static/mock-images/avatars/avatar-jane_rotanson.png',
-          name: 'Jane Rotanson'
+          name: 'Edgar Quintero'
         },
         comments: [
           {
@@ -103,7 +103,7 @@ class SocialApi {
         author: {
           id: '5e86809283e28b96d2d38537',
           avatar: '/static/mock-images/avatars/avatar-jane_rotanson.png',
-          name: 'Jane Rotanson'
+          name: 'Edgar Quintero'
         },
         comments: [
           {
@@ -168,7 +168,7 @@ class SocialApi {
         author: {
           id: '5e86809283e28b96d2d38537',
           avatar: '/static/mock-images/avatars/avatar-jane_rotanson.png',
-          name: 'Jane Rotanson'
+          name: 'Edgar Quintero'
         },
         comments: [
           {
@@ -203,7 +203,7 @@ class SocialApi {
         author: {
           id: '5e86809283e28b96d2d38537',
           avatar: '/static/mock-images/avatars/avatar-jane_rotanson.png',
-          name: 'Jane Rotanson'
+          name: 'Edgar Quintero'
         },
         comments: [
           {

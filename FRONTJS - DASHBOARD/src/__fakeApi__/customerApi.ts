@@ -64,7 +64,7 @@ class CustomerApi {
         hasAcceptedMarketing: true,
         isProspect: false,
         isReturning: true,
-        name: 'Jane Rotanson',
+        name: 'Edgar Quintero',
         state: 'Madrid',
         totalAmountSpent: 500.00,
         totalOrders: 1,

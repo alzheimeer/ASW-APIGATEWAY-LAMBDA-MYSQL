@@ -34,25 +34,45 @@ const sections = [
     title: 'General',
     items: [
       {
-        title: 'Overview',
-        path: '/dashboard',
+        title: 'UserList',
+        path: '/dashboard/UserList',
         icon: <ChartSquareBarIcon fontSize="small" />
       },
       {
-        title: 'Analytics',
-        path: '/dashboard/analytics',
+        title: 'UserForm',
+        path: '/dashboard/UserForm',
         icon: <ChartPieIcon fontSize="small" />
       },
       {
-        title: 'Finance',
-        path: '/dashboard/finance',
+        title: 'AddBdUser',
+        path: '/dashboard/AddBdUser',
         icon: <ShoppingBagIcon fontSize="small" />
       },
       {
-        title: 'Account',
-        path: '/dashboard/account',
+        title: 'Sqlv',
+        path: '/dashboard/Sqlv',
         icon: <UserIcon fontSize="small" />
       }
+      // {
+      //   title: 'Overview',
+      //   path: '/dashboard',
+      //   icon: <ChartSquareBarIcon fontSize="small" />
+      // },
+      // {
+      //   title: 'Analytics',
+      //   path: '/dashboard/analytics',
+      //   icon: <ChartPieIcon fontSize="small" />
+      // },
+      // {
+      //   title: 'Finance',
+      //   path: '/dashboard/finance',
+      //   icon: <ShoppingBagIcon fontSize="small" />
+      // },
+      // {
+      //   title: 'Account',
+      //   path: '/dashboard/account',
+      //   icon: <UserIcon fontSize="small" />
+      // }
     ]
   },
   {

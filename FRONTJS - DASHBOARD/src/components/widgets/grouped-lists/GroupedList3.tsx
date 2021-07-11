@@ -45,7 +45,7 @@ const tasks = [
       },
       {
         avatar: '/static/mock-images/avatars/avatar-jane_rotanson.png',
-        name: 'Jane Rotanson'
+        name: 'Edgar Quintero'
       },
       {
         avatar: '/static/mock-images/avatars/avatar-nasimiyu_danai.png',
@@ -94,7 +94,7 @@ const tasks = [
       },
       {
         avatar: '/static/mock-images/avatars/avatar-jane_rotanson.png',
-        name: 'Jane Rotanson'
+        name: 'Edgar Quintero'
       }
     ],
     title: 'GDPR Compliance'
