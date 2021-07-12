@@ -12,12 +12,12 @@ interface Params {
 
 
 const UserForm = () => {
-
+    
     // Se Crea History Y Params
     // const history = useHistory();
     <Outlet />
     const params = useParams();
-
+    console.log('ID:',params.id);
     // Creacion Del Estado De Las Variables Del Formulario
     const inicialState = {
         name: '',
@@ -62,6 +62,7 @@ const UserForm = () => {
 
     const fgetUser = async (id: string) => {
         const resp = await getUser(id);
+        // console.log(resp)
         const { name, secondname, surname, secondsurname, email, password } = resp.data[0];
         setUser({ name, secondname, surname, secondsurname, email, password });
 

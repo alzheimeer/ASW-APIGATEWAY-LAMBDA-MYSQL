@@ -1,9 +1,21 @@
 import React from 'react'
 import { User } from '../interfaces/User';
 import './UserItem.css'
-import { Link, Outlet } from 'react-router-dom';
+import { Link as RouterLink, Outlet } from 'react-router-dom';
 import { deleteUser } from '../Services/UserService';
 import Swal from 'sweetalert2';
+import {
+    Box,
+    Breadcrumbs,
+    Button,
+    Card,
+    Container,
+    Dialog,
+    Grid,
+    Link,
+    Typography
+  } from '@material-ui/core';
+
 
 
 interface Props {
@@ -36,8 +48,16 @@ const UserItem = ({ user, loadUsers }: Props) => {
                             style={{cursor: 'pointer'}} 
                             >
                 <div className="div d-flex justify-content-between">
-                    <h1  onClick={() =>  <Link to='/update/${user.idusers}'></Link>} >ID:<small> {user.idusers}</small></h1>
-                    <span className="text-danger" onClick={() => user.idusers && handleDelete(user.idusers)}    >X</span>
+                    <Link
+                    color="textPrimary"
+                    component={RouterLink}
+                    to={`dashboard/update/${user.id}`}
+                    variant="subtitle2"
+                    > ID: <small> {user.id}</small>
+                    </Link>
+                   
+                   
+                    <span className="text-danger" onClick={() => user.id && handleDelete(user.id)}    >X</span>
                 </div>
                 
                 <h3>Nombres:  {user.name} {user.secondname}</h3>

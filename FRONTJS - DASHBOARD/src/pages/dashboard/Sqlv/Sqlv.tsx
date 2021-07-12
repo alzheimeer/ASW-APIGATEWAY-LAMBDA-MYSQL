@@ -51,10 +51,10 @@ const Sqlv = () => {
     return (
         <div className="container">
             <div className="row">
-             
+                
                 <form onSubmit={handleSubmit}>
 
-                    <label htmlFor="host">Host: </label>
+                <label htmlFor="host">Host: </label>
                     <select className="form-select " aria-label="Default select example" name="host" onChange={handleInputChange}>
                         <option selected>Choose</option>
                         <option value="lendiup.ccuvk0hypuej.us-east-1.rds.amazonaws.com">lendiup.ccuvk0hypuej.us-east-1.rds.amazonaws.com</option>

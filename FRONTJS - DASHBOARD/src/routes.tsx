@@ -176,26 +176,26 @@ const routes: PartialRouteObject[] = [
     children: [
       {
         path: '/',
-        element: <Overview />
-      },
-      {
-        path: 'UserList',
         element: <UserList />
       },
       {
-        path: 'UserForm',
+        path: '/new-user',
         element: <UserForm />
       },
       {
-        path: 'UserItem',
+        path: '/update/:id',
+        element: <UserForm />
+      },
+      {
+        path: '/UserItem', 
         element: <UserItem />
       },
       {
-        path: 'AddBdUser',
+        path: '/registerUser',
         element: <AddBdUser />
       },
       {
-        path: 'Sqlv',
+        path: '/query',
         element: <Sqlv />
       },
       {

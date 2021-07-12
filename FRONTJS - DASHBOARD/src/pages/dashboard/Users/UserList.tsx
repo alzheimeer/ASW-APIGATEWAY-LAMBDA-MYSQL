@@ -32,7 +32,7 @@ const UserList = () => {
 
         <div className="row">
             {users.map((user: User) => {
-                return <UserItem user={user} key={user.idusers} loadUsers={loadUsers}></UserItem>
+                return <UserItem user={user} key={user.id} loadUsers={loadUsers}></UserItem>
             })}
          
         </div>
