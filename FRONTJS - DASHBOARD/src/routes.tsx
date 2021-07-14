@@ -66,11 +66,15 @@ const Overview = Loadable(lazy(() => import('./pages/dashboard/Overview')));
 const ProductCreate = Loadable(lazy(() => import('./pages/dashboard/ProductCreate')));
 const ProductList = Loadable(lazy(() => import('./pages/dashboard/ProductList')));
 
+// Module Test Crud Mysql RDS
 const UserList = Loadable(lazy(() => import('./pages/dashboard/Users/UserList')));
 const UserItem = Loadable(lazy(() => import('./pages/dashboard/Users/UserItem')));
 const UserForm = Loadable(lazy(() => import('./pages/dashboard/Users/UserForm')));
-const AddBdUser = Loadable(lazy(() => import('./pages/dashboard//Sqlv/Sqlv')));
+const AddBdUser = Loadable(lazy(() => import('./pages/dashboard/Sqlv/AddBdUser')));
+
+// Module Alison
 const Sqlv = Loadable(lazy(() => import('./pages/dashboard/Sqlv/Sqlv')));
+const Start = Loadable(lazy(() => import('./pages/dashboard/Sqlv/Start')));
 
 
 
@@ -104,290 +108,302 @@ const Pricing = Loadable(lazy(() => import('./pages/Pricing')));
 
 const routes: PartialRouteObject[] = [
   {
-    path: 'authentication',
+    path: "authentication",
     children: [
       {
-        path: 'login',
+        path: "login",
         element: (
-          <GuestGuard>
+          // <GuestGuard>
             <Login />
-          </GuestGuard>
-        )
+          // </GuestGuard>
+        ),
       },
       {
-        path: 'login-unguarded',
-        element: <Login />
+        path: "login-unguarded",
+        element: <Login />,
       },
       {
-        path: 'password-recovery',
-        element: <PasswordRecovery />
+        path: "password-recovery",
+        element: <PasswordRecovery />,
       },
       {
-        path: 'password-reset',
-        element: <PasswordReset />
+        path: "password-reset",
+        element: <PasswordReset />,
       },
       {
-        path: 'register',
+        path: "register",
         element: (
-          <GuestGuard>
+          // <GuestGuard>
             <Register />
-          </GuestGuard>
-        )
+          // </GuestGuard>
+        ),
       },
       {
-        path: 'register-unguarded',
-        element: <Register />
+        path: "register-unguarded",
+        element: <Register />,
       },
       {
-        path: 'verify-code',
-        element: <VerifyCode />
-      }
-    ]
+        path: "verify-code",
+        element: <VerifyCode />,
+      },
+    ],
   },
   {
-    path: 'blog',
+    path: "blog",
     element: <BlogLayout />,
     children: [
       {
-        path: '/',
-        element: <BlogPostList />
+        path: "/",
+        element: <BlogPostList />,
       },
       {
-        path: 'new',
-        element: <BlogPostCreate />
+        path: "new",
+        element: <BlogPostCreate />,
       },
       {
-        path: ':postId',
-        element: <BlogPostDetails />
-      }
-    ]
+        path: ":postId",
+        element: <BlogPostDetails />,
+      },
+    ],
   },
   {
-    path: 'contact',
-    element: <Contact />
+    path: "contact",
+    element: <Contact />,
+  },
+
+  {
+    path: "start",
+    element: <Start />,
   },
   {
-    path: 'dashboard',
+    path: "querys",
+    element: <Sqlv />,
+  },
+  {
+    path: "alison",
+    element: <DashboardLayout />,
+    children: [
+      { path: "/", element: <Start /> },
+      { path: "/querys", element: <Sqlv /> },
+     
+
+    ],
+  },
+
+
+
+  {
+    path: "dashboard",
     element: (
-      <AuthGuard>
-        <DashboardLayout />
-      </AuthGuard>
+      // <AuthGuard>
+      <DashboardLayout />
+      // </AuthGuard>
     ),
     children: [
       {
-        path: '/',
-        element: <UserList />
+        path: "/",
+        element: <UserList />,
       },
       {
-        path: '/new-user',
-        element: <UserForm />
+        path: "/new-user",
+        element: <UserForm />,
       },
       {
-        path: '/update/:id',
-        element: <UserForm />
+        path: "/update/:id",
+        element: <UserForm />,
       },
       {
-        path: '/UserItem', 
-        element: <UserItem />
+        path: "/UserItem",
+        element: <UserItem />,
       },
       {
-        path: '/registerUser',
-        element: <AddBdUser />
+        path: "/registerUser",
+        element: <AddBdUser />,
       },
       {
-        path: '/query',
-        element: <Sqlv />
+        path: "/query",
+        element: <Sqlv />,
       },
       {
-        path: 'account',
-        element: <Account />
+        path: "account",
+        element: <Account />,
       },
       {
-        path: 'analytics',
-        element: <Analytics />
+        path: "analytics",
+        element: <Analytics />,
       },
       {
-        path: 'calendar',
-        element: <Calendar />
+        path: "calendar",
+        element: <Calendar />,
       },
       {
-        path: 'chat',
+        path: "chat",
         children: [
           {
-            path: '/',
-            element: <Chat />
+            path: "/",
+            element: <Chat />,
           },
           {
-            path: 'new',
-            element: <Chat />
+            path: "new",
+            element: <Chat />,
           },
           {
-            path: ':threadKey',
-            element: <Chat />
-          }
-        ]
+            path: ":threadKey",
+            element: <Chat />,
+          },
+        ],
       },
       {
-        path: 'customers',
+        path: "customers",
         children: [
           {
-            path: '/',
-            element: <CustomerList />
+            path: "/",
+            element: <CustomerList />,
           },
           {
-            path: ':customerId',
-            element: <CustomerDetails />
+            path: ":customerId",
+            element: <CustomerDetails />,
           },
           {
-            path: ':customerId/edit',
-            element: <CustomerEdit />
-          }
-        ]
+            path: ":customerId/edit",
+            element: <CustomerEdit />,
+          },
+        ],
       },
       {
-        path: 'invoices',
+        path: "invoices",
         children: [
           {
-            path: '/',
-            element: <InvoiceList />
+            path: "/",
+            element: <InvoiceList />,
           },
           {
-            path: ':invoiceId',
-            element: <InvoiceDetails />
-          }
-        ]
+            path: ":invoiceId",
+            element: <InvoiceDetails />,
+          },
+        ],
       },
       {
-        path: 'kanban',
-        element: <Kanban />
+        path: "kanban",
+        element: <Kanban />,
       },
       {
-        path: 'mail',
+        path: "mail",
         children: [
           {
-            path: '/',
-            element: (
-              <Navigate
-                to="/dashboard/mail/all"
-                replace
-              />
-            )
+            path: "/",
+            element: <Navigate to="/dashboard/mail/all" replace />,
           },
           {
-            path: 'label/:customLabel',
-            element: <Mail />
+            path: "label/:customLabel",
+            element: <Mail />,
           },
           {
-            path: 'label/:customLabel/:emailId',
-            element: <Mail />
+            path: "label/:customLabel/:emailId",
+            element: <Mail />,
           },
           {
-            path: ':systemLabel',
-            element: <Mail />
+            path: ":systemLabel",
+            element: <Mail />,
           },
           {
-            path: ':systemLabel/:emailId',
-            element: <Mail />
-          }
-        ]
+            path: ":systemLabel/:emailId",
+            element: <Mail />,
+          },
+        ],
       },
       {
-        path: 'orders',
+        path: "orders",
         children: [
           {
-            path: '/',
-            element: <OrderList />
+            path: "/",
+            element: <OrderList />,
           },
           {
-            path: ':orderId',
-            element: <OrderDetails />
-          }
-        ]
+            path: ":orderId",
+            element: <OrderDetails />,
+          },
+        ],
       },
       {
-        path: 'finance',
-        element: <Finance />
+        path: "finance",
+        element: <Finance />,
       },
       {
-        path: 'products',
+        path: "products",
         children: [
           {
-            path: '/',
-            element: <ProductList />
+            path: "/",
+            element: <ProductList />,
           },
           {
-            path: 'new',
-            element: <ProductCreate />
-          }
-        ]
+            path: "new",
+            element: <ProductCreate />,
+          },
+        ],
       },
       {
-        path: 'projects',
+        path: "projects",
         children: [
           {
-            path: 'browse',
-            element: <ProjectBrowse />
+            path: "browse",
+            element: <ProjectBrowse />,
           },
           {
-            path: 'new',
-            element: <ProjectCreate />
+            path: "new",
+            element: <ProjectCreate />,
           },
           {
-            path: ':projectId',
-            element: <ProjectDetails />
-          }
-        ]
+            path: ":projectId",
+            element: <ProjectDetails />,
+          },
+        ],
       },
       {
-        path: 'social',
+        path: "social",
         children: [
           {
-            path: 'feed',
-            element: <SocialFeed />
+            path: "feed",
+            element: <SocialFeed />,
           },
           {
-            path: 'profile',
-            element: <SocialProfile />
-          }
-        ]
-      }
-    ]
+            path: "profile",
+            element: <SocialProfile />,
+          },
+        ],
+      },
+    ],
   },
   {
-    path: 'docs',
+    path: "docs",
     element: <DocsLayout />,
     children: [
       {
-        path: '/',
-        element: (
-          <Navigate
-            to="/docs/overview/welcome"
-            replace
-          />
-        )
+        path: "/",
+        element: <Navigate to="/docs/overview/welcome" replace />,
       },
       {
-        path: '*',
-        element: <Docs />
-      }
-    ]
+        path: "*",
+        element: <Docs />,
+      },
+    ],
   },
   {
-    path: '*',
+    path: "*",
     // element: <MainLayout />,
     // element: <DashboardLayout />,
-    element: (
-      <AuthGuard>
-        <DashboardLayout />
-      </AuthGuard>
-    ),
+    element: 
+      // <AuthGuard>
+        <Start />
+      // </AuthGuard>
+    ,
     children: [
       {
-        path: '/', 
+        path: "/",
         // element: <Home />
-        element: <UserList />
+        element: <UserList />,
       },
-     
+
       // {
       //   path: '/UserForm',
       //   element: <UserForm />
@@ -405,89 +421,89 @@ const routes: PartialRouteObject[] = [
       //   element: <Sqlv />
       // },
       {
-        path: 'browse',
+        path: "browse",
         element: <BrowseLayout />,
         children: [
           {
-            path: '/',
-            element: <Browse />
+            path: "/",
+            element: <Browse />,
           },
           {
-            path: '/buttons',
-            element: <BrowseButtons />
+            path: "/buttons",
+            element: <BrowseButtons />,
           },
           {
-            path: '/inputs',
-            element: <BrowseInputs />
+            path: "/inputs",
+            element: <BrowseInputs />,
           },
           {
-            path: '/charts',
-            element: <BrowseCharts />
+            path: "/charts",
+            element: <BrowseCharts />,
           },
           {
-            path: '/colors',
-            element: <BrowseColors />
+            path: "/colors",
+            element: <BrowseColors />,
           },
           {
-            path: '/data-display/detail-lists',
-            element: <BrowseDetailLists />
+            path: "/data-display/detail-lists",
+            element: <BrowseDetailLists />,
           },
           {
-            path: '/data-display/quick-stats',
-            element: <BrowseQuickStats />
+            path: "/data-display/quick-stats",
+            element: <BrowseQuickStats />,
           },
           {
-            path: '/data-display/tables',
-            element: <BrowseTables />
+            path: "/data-display/tables",
+            element: <BrowseTables />,
           },
           {
-            path: '/forms',
-            element: <BrowseForms />
+            path: "/forms",
+            element: <BrowseForms />,
           },
           {
-            path: '/modals',
-            element: <BrowseModals />
+            path: "/modals",
+            element: <BrowseModals />,
           },
           {
-            path: '/lists/grouped-lists',
-            element: <BrowseGroupedLists />
+            path: "/lists/grouped-lists",
+            element: <BrowseGroupedLists />,
           },
           {
-            path: '/lists/grid-lists',
-            element: <BrowseGridLists />
+            path: "/lists/grid-lists",
+            element: <BrowseGridLists />,
           },
           {
-            path: '/typography',
-            element: <BrowseTypography />
-          }
-        ]
+            path: "/typography",
+            element: <BrowseTypography />,
+          },
+        ],
       },
       {
-        path: 'checkout',
-        element: <Checkout />
+        path: "checkout",
+        element: <Checkout />,
       },
       {
-        path: 'pricing',
-        element: <Pricing />
+        path: "pricing",
+        element: <Pricing />,
       },
       {
-        path: '401',
-        element: <AuthorizationRequired />
+        path: "401",
+        element: <AuthorizationRequired />,
       },
       {
-        path: '404',
-        element: <NotFound />
+        path: "404",
+        element: <NotFound />,
       },
       {
-        path: '500',
-        element: <ServerError />
+        path: "500",
+        element: <ServerError />,
       },
       {
-        path: '*',
-        element: <NotFound />
-      }
-    ]
-  }
+        path: "*",
+        element: <NotFound />,
+      },
+    ],
+  },
 ];
 
 export default routes;

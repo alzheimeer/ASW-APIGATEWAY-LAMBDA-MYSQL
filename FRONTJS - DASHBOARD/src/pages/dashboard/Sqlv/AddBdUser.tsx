@@ -2,6 +2,7 @@ import React, { FormEvent, useState } from 'react'
 import './Sqlv.css'
 import { nQuery } from '../Services/UserService';
 import Button from '@material-ui/core/Button';
+import { Box, Grid } from '@material-ui/core'
 
 
 const AddBdUser = () => {
@@ -38,79 +39,86 @@ const AddBdUser = () => {
     function searchEmail() {
         console.log('das')
     }
-    
+
     return (
-        <div className="container">
-            <div className="row">
-                <h1 className="text-center">PANEL ADMINISTRATOR </h1>             
-                <form onSubmit={handleSubmit}>
+        <div>
+            <Grid container className="sa">
 
-                    <label htmlFor="email">Type Email User: </label>
-                    <input type="email" name="email" id="email" className="m-3" placeholder="...@...com"/>
-                    <Button variant="outlined" color="primary" onClick={() => { searchEmail() }}>Search Email</Button>
-                    <hr />
-                    <label htmlFor="database">Database name</label>
-                    <select className="form-select" aria-label="Default select example" name="database" onChange={handleInputChange}>
-                        <option selected>Choose</option>
-                        <option value={"lendiup"}>lendiup</option>
-                    </select>
+                <Grid item xs={12}>
+                    <h1 className="text-center">PANEL ADMINISTRATOR </h1>
+                    <form onSubmit={handleSubmit}>
+                        <Grid item xs={3}>
+                            <label htmlFor="email">Type Email User: </label>
+                            <input type="email" name="email" id="email" className="m-3" placeholder="...@...com" />
+                            <Button variant="outlined" color="primary" onClick={() => { searchEmail() }}>Search Email</Button>
+                            <hr />
+                        </Grid>
 
-                    <label htmlFor="user">user</label>
-                    <select className="form-select" aria-label="Default select example" name="user" onChange={handleInputChange}>
-                        <option selected>Choose</option>
-                        <option value={"admin"}>admin</option>
-                    </select>
+                        <Grid item xs={3}>
+                            <label htmlFor="database">Database name</label>
+                            <select className="form-select" aria-label="Default select example" name="database" onChange={handleInputChange}>
+                                <option selected>Choose</option>
+                                <option value={"lendiup"}>lendiup</option>
+                            </select>
+                        </Grid>
+                        <Grid item xs={3}>
+                            <label htmlFor="user">user</label>
+                            <select className="form-select" aria-label="Default select example" name="user" onChange={handleInputChange}>
+                                <option selected>Choose</option>
+                                <option value={"admin"}>admin</option>
+                            </select>
+                        </Grid>
 
-                    <label htmlFor="password">password</label>
-                    <select className="form-select" aria-label="Default select example" name="password" onChange={handleInputChange}>
-                        <option selected>Choose</option>
-                        <option value={"Zpwjiexxn193*"}>Zpwjiexxn193*</option>
-                    </select>
+                        <Grid item xs={3}>
+                            <Box border={1}>
+                            <label htmlFor="password">password</label>
+                            <select className="form-select" aria-label="Default select example" name="password" onChange={handleInputChange}>
+                                <option selected>Choose</option>
+                                <option value={"Zpwjiexxn193*"}>Zpwjiexxn193*</option>
+                            </select>
+                            </Box>
+                        </Grid>
 
-                    
 
 
 
-                    <div className="col-md-12 sa">
-                       
-                        <div className="div row">
-                            <div className="col-md-10"></div>
-                            <div className="col-md-2">
-                                <button className="btn btn-lg btn-block btn-primary mb-3 x">Test</button>
-                            </div>
-                        </div>
+                        <Grid item xs={12}>
 
+                           
+                                    <button className="btn btn-lg btn-block btn-primary mb-3 x">Test</button>
+                            
+                        </Grid>
+                    </form>
+
+
+
+
+
+                    <div className="col-md-12 ">
+                        <table className="table table-bordered">
+                            <thead>
+                                <tr>
+                                    {arrayKeys.map((colname: string) => {
+                                        return (
+                                            <th scope="col">{colname}</th>
+                                        );
+                                    })}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {arrayValues.map((obj: any) => {
+                                    return (<tr> {Object.values(obj).map((colname: any) => {
+                                        return (
+                                            <td>{colname}</td>
+                                        );
+                                    })}
+                                    </tr>);
+                                })}
+                            </tbody>
+                        </table>
                     </div>
-                </form>
-
-
-
-
-
-                <div className="col-md-12 ">
-                    <table className="table table-bordered">
-                        <thead>
-                            <tr>
-                                {arrayKeys.map((colname: string) => {
-                                    return (
-                                        <th scope="col">{colname}</th>
-                                    );
-                                })}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {arrayValues.map((obj: any) => {
-                                return (<tr> {Object.values(obj).map((colname: any) => {
-                                    return (
-                                        <td>{colname}</td>
-                                    );
-                                })}
-                                </tr>);
-                            })}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                </Grid>
+            </Grid>
         </div>
     )
 }
