@@ -9,13 +9,14 @@ const Start = () => {
         //sacamos de la respuesta los datos que necesitamos
         //el token, aunque tambien llega el nombre apellido y foto
         //con estos podriamos colocarlos de forma bonita en el sidebar
-        console.log('Bearer Token', response.accessToken);
+        console.log('Bearer Token', response.tokenId);
         console.log('Email', response.profileObj.email);
         console.log('Nombre', response.profileObj.givenName);
         console.log('Apellido', response.profileObj.familyName);
         console.log('Foto', response.profileObj.imageUrl);
+        console.log('Access Token', response.profileObj.accessToken);
         //Mandamos a localStorage o cookies el token de google.
-        localStorage.setItem('Bearer', response.accessToken);
+        localStorage.setItem('Bearer', response.tokenId);
         //Nos Dirigimos a Querys
         navigate('/querys');
       }
